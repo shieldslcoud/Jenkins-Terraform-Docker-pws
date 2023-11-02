@@ -170,8 +170,9 @@ resource "aws_instance" "demoinstance1" {
     delete_on_termination = false
   }
   # output from module
-  source = "./main/aws-web-server-instance"
-module.aws_web_server_instance.instance_public_ip
+  source = "./main/"
+  ip_id  = main.aws_instance.app_server.public_ip
+
    
   # SSH into instance 
   connection {
@@ -181,7 +182,7 @@ module.aws_web_server_instance.instance_public_ip
     private_key = "${file(var.private_key)}"
     # Type of connection
     type = "ssh"
-    host = "self.public_ip"
+    host = "ip_id"
 
     
   }
