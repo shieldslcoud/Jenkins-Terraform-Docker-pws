@@ -168,40 +168,6 @@ resource "aws_instance" "demoinstance1" {
     volume_size = "80"
     volume_type = "standard"
     delete_on_termination = false
-  }
-  # output from module
-
-  output "ip" {
-  value = "${aws_instance.my-instance.*.public_ip}"
-
-}
-   
-  # SSH into instance 
-  connection {
-    # The default username for our AMI
-    user = "ec2-user"
-    # Private key for connection
-    private_key = "${file(var.private_key)}"
-    # Type of connection
-    type = "ssh"
-    host = "ip"
-
-    
-  }
-  
-  # Installing splunk & creating distributed indexer clustering on newly created instance
-  provisioner "remote-exec" {
-    inline = [
-      "sudo yum update -y",
-      "sudo amazon-linux-extras install docker -y",
-      "sudo service docker start",
-      "sudo usermod -a -G docker ec2-user",
-      "sudo chkconfig docker on",
-      "sudo yum install -y git",
-      "sudo chmod 666 /var/run/docker.sock",
-      "docker pull dhruvin30/dhsoniweb:v1",
-      "docker run -d -p 80:80 dhruvin30/dhsoniweb:v1"   
-  ]
- }
+  }   
 }
 
