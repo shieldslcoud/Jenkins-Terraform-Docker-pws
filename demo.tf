@@ -1,12 +1,3 @@
-terraform {
-required_providers {
-passwordsafe = {
-source = "beyondtrust/passwordsafe"
-version = "1.0.1"
-}
-}
-}
-
 # Configure and downloading plugins for aws
 provider "aws" {
   #access_key = "${var.access_key}"
