@@ -170,8 +170,9 @@ resource "aws_instance" "demoinstance1" {
     delete_on_termination = false
   }
   # output from module
-  source = "./main/"
-  ip_id  = main.aws_instance.app_server.public_ip
+
+  output "ip" {
+  value = "${aws_instance.my-instance.*.public_ip}"
 
    
   # SSH into instance 
@@ -182,7 +183,7 @@ resource "aws_instance" "demoinstance1" {
     private_key = "${file(var.private_key)}"
     # Type of connection
     type = "ssh"
-    host = "ip_id"
+    host = "ip"
 
     
   }
