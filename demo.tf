@@ -174,6 +174,7 @@ resource "aws_instance" "demoinstance1" {
   output "ip" {
   value = "${aws_instance.my-instance.*.public_ip}"
 
+}
    
   # SSH into instance 
   connection {
