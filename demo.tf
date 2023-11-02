@@ -169,7 +169,10 @@ resource "aws_instance" "demoinstance1" {
     volume_type = "standard"
     delete_on_termination = false
   }
-  
+  # output from module
+  source = "./main/aws-web-server-instance"
+module.aws_web_server_instance.instance_public_ip
+   
   # SSH into instance 
   connection {
     # The default username for our AMI
