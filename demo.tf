@@ -195,9 +195,7 @@ data "passwordsafe_secret" "secret_credential" {
 path = "PWS_cache/k8s.txt"
 title = "credLevel6"
 }
-output "secret_credential" {
-value = "${data.passwordsafe_secret.secret_credential.value}"
-}
+
 
 
 }
