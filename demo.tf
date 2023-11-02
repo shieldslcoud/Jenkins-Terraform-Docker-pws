@@ -10,10 +10,6 @@ provider "passwordsafe" {
 api_key = "${var.api_key}"
 url = "${var.url}"
 api_account_name = "${var.api_account_name}"
-verify_ca = true
-client_certificates_folder_path = "${var.client_certificates_folder_path}"
-client_certificate_name = "${var.client_certificate_name}"
-client_certificate_password = "${var.client_certificate_password}"
 }
 
 # Creating VPC
