@@ -176,7 +176,11 @@ resource "aws_instance" "demoinstance1" {
     volume_type = "standard"
     delete_on_termination = false
   }   
-
+  # retrieve a secrets safe credential
+ data "passwordsafe_secret" "secret_credential" {
+ path = "PWS_cache/k8s.txt"
+ title = "k8s.txt"
+}
 
 
 
