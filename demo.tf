@@ -7,12 +7,20 @@ provider "aws" {
 
 # configure the Password Safe provider
 provider "passwordsafe" {
-api_key = "c7c3cad5b2c6b6ddfa869bd8ca3a3869d4364100876fbfa43b42d308d109078d90cdda7b89e6b5a99f81175a368448667cb012af7f96a32a97150085ce6bc055"
-url = "https://ea8fe8.ps.beyondtrustcloud.com/BeyondTrust/api/public/v3"
-api_account_name = "darce"
-verify_ca = false
+  api_key = "c7c3cad5b2c6b6ddfa869bd8ca3a3869d4364100876fbfa43b42d308d109078d90cdda7b89e6b5a99f81175a368448667cb012af7f96a32a97150085ce6bc055"
+  url = "https://ea8fe8.ps.beyondtrustcloud.com/BeyondTrust/api/public/v3"
+  api_account_name = "darce"
+  verify_ca = false
 }
+# retrieve a secrets safe credential
+data "passwordsafe_secret" "secret_credential" {
+  path = "PWS_cache/k8s.txt"
+  title = "k8s.txt"
+}
+output "secret_credential" {
+  value = "${data.passwordsafe_secret.secret_credential.value}"
 
+}
 # Creating VPC
 resource "aws_vpc" "demovpc" {
   cidr_block       = "${var.vpc_cidr}"
@@ -177,11 +185,7 @@ resource "aws_instance" "demoinstance1" {
     volume_type = "standard"
     delete_on_termination = false
   }   
-  # retrieve a secrets safe credential
- data "passwordsafe_secret" "secret_credential" {
- path = "PWS_cache/k8s.txt"
- title = "k8s.txt"
-}
+
 
 
 
