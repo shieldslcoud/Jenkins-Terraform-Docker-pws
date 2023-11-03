@@ -1,3 +1,17 @@
+# configure the Password Safe provider
+provider "passwordsafe" {
+  api_key = "afa0ed57465be8573b2336540bb2b07d440e0cb9665eb4a97cff188b3aa83a51f312386b15343832a1c8d1eb707aef5b7ca8048bd1d1fdd269c1e06e0531b190"
+  url = "https://ea8fe8.ps.beyondtrustcloud.com/BeyondTrust/api/public/v3"
+  api_account_name = "apiadmin"
+  verify_ca = false
+}
+
+
+# retrieve a managed account secret
+data "passwordsafe_managed_account" "manage_account" {
+system_name = "db02-mongo"
+account_name = "root"
+}
 # Configure and downloading plugins for aws
 provider "aws" {
   #access_key = "${var.access_key}"
