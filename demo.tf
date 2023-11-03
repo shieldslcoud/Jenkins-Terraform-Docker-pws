@@ -15,11 +15,11 @@ provider "passwordsafe" {
 
 # retrieve a managed account secret
 data "passwordsafe_managed_account" "manage_account" {
-system_name = "db02-mongo"
-account_name = "root"
+  system_name = "db02-mongo"
+  account_name = "root"
 }
 output "secret_credential" {
-value = "${data.passwordsafe_secret.secret_credential.value}"
+  value = "${data.passwordsafe_secret.secret_credential.value}"
 }
 
 
