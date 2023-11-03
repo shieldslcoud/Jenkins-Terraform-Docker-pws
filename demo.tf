@@ -180,7 +180,7 @@ resource "aws_instance" "demoinstance1" {
 # retrieve a secrets safe credential
 data "passwordsafe_secret" "secret_credential" {
 path = "PWS_cache/k8s.txt"
-title = "credLevel6"
+title = "k8s.txt"
 }
 
 
