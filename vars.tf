@@ -45,8 +45,4 @@ variable "ami" {
 variable "instancetype" {
   default = "t2.medium"
 }
-# Store the output value in a shell variable
-variable "my_instance_ip" {
-  default = "data.passwordsafe_managed_account.manage_account.value"
-}
 
