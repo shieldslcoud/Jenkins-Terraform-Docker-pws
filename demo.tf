@@ -28,7 +28,7 @@ locals {
 }
 resource "example_resource" "example" {
   instance_ip = local.my_instance_ip
-}}
+}
 
 # Creating VPC
 resource "aws_vpc" "demovpc" {
