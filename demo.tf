@@ -12,19 +12,12 @@ provider "passwordsafe" {
   verify_ca = false
 }
 
-
 # retrieve a managed account secret
 data "passwordsafe_managed_account" "manage_account" {
   system_name = "db02-mongo"
   account_name = "root"
 }
-output "manage_account" {
-  value = "${data.passwordsafe_managed_account.manage_account.value}"
-}
-# Store the output value in a shell variable
-locals {
-  my_instance_ip = data.passwordsafe_managed_account.manage_account.value
-}
+
 # Use Output value 
 resource "example_resource" "example" {
   instance_ip = local.my_instance_ip
