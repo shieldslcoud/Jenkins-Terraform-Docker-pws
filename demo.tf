@@ -27,7 +27,7 @@ INSTANCE_IP=$(terraform output manage_account)
 }
 # Use the variable in your script or tool
 {
-echo "Instance IP: $INSTANCE_IP"
+echo $INSTANCE_IP
 }
 # Creating VPC
 resource "aws_vpc" "demovpc" {
