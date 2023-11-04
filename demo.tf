@@ -26,7 +26,9 @@ output "manage_account" {
 locals {
   my_instance_ip = data.passwordsafe_managed_account.manage_account.value
 }
-
+resource "example_resource" "example" {
+  instance_ip = local.my_instance_ip
+}
 
 # Creating VPC
 resource "aws_vpc" "demovpc" {
