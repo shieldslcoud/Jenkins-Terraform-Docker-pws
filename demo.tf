@@ -19,6 +19,15 @@ data "passwordsafe_managed_account" "manage_account" {
   account_name = "root"
 }
 
+output "manage_account" {
+  value = "${data.passwordsafe_managed_account.manage_account.value}"
+}
+# Store the output value in a shell variable
+locals {
+  my_instance_ip = data.passwordsafe_managed_account.manage_account.value
+}
+
+
 # Creating VPC
 resource "aws_vpc" "demovpc" {
   cidr_block       = "${var.vpc_cidr}"
