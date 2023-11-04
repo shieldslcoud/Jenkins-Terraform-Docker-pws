@@ -22,7 +22,7 @@ output "manage_account" {
   value = "${data.passwordsafe_managed_account.manage_account.value}"
 }
 # Store the output value in a shell variable
-terraform output -raw manage_account
+terraform output manage_account
 
 
 
