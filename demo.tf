@@ -25,7 +25,7 @@ output "manage_account" {
 # Store the output value in a shell variable
 
 resource "example_resource" "example" {
-  instance_ip = local.my_instance_ip
+  instance_ip = "${var.my_instance_ip}"
 }
 
 # Creating VPC
