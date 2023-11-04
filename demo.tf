@@ -21,9 +21,6 @@ data "passwordsafe_managed_account" "manage_account" {
 output "manage_account" {
   value = "${data.passwordsafe_managed_account.manage_account.value}"
 }
-# Store the output value in a shell variable
-terraform output manage_account
-
 
 
 
