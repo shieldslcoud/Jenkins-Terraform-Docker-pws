@@ -23,10 +23,12 @@ output "manage_account" {
   value = "${data.passwordsafe_managed_account.manage_account.value}"
 }
 # Store the output value in a shell variable
-
-resource "example_resource" "example" {
-  instance_ip = "${var.my_instance_ip}"
+locals {
+  my_instance_ip = data.passwordsafe_managed_account.manage_account.value
 }
+resource "example_resource" "example" {
+  instance_ip = local.my_instance_ip
+}}
 
 # Creating VPC
 resource "aws_vpc" "demovpc" {
