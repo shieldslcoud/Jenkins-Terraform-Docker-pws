@@ -21,7 +21,16 @@ data "passwordsafe_managed_account" "manage_account" {
 output "manage_account" {
   value = "${data.passwordsafe_managed_account.manage_account.value}"
 }
+# Store the output value in a shell variable
+INSTANCE=$(terraform output manage_account)
 
+# Use the variable in your script or tool
+echo "Instance: $INSTANCE"
+
+variable "template" {
+  type = string
+  default = "${data.passwordsafe_managed_account.manage_account.value}"
+}
 
 
 # Creating VPC
