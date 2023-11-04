@@ -26,11 +26,6 @@ terraform output manage_account
 
 
 
-variable "template" {
-  type = string
-  default = "${data.passwordsafe_managed_account.manage_account.value}"
-}
-
 
 # Creating VPC
 resource "aws_vpc" "demovpc" {
