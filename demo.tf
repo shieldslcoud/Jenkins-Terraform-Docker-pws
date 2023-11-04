@@ -1,3 +1,9 @@
+# Configure and downloading plugins for aws
+provider "aws" {
+  #access_key = "${var.access_key}"
+  #secret_key = "${var.secret_key}"
+  region     = "${var.aws_region}"
+}
 
 # configure the Password Safe provider
 provider "passwordsafe" {
@@ -11,13 +17,6 @@ provider "passwordsafe" {
 data "passwordsafe_managed_account" "manage_account" {
   system_name = "db02-mongo"
   account_name = "root"
-}
-
-# Configure and downloading plugins for aws
-provider "aws" {
-  #access_key = "${var.access_key}"
-  #secret_key = "${var.secret_key}"
-  region     = "${var.aws_region}"
 }
 
 # Creating VPC
