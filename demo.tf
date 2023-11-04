@@ -24,8 +24,7 @@ output "manage_account" {
 # Store the output value in a shell variable
 INSTANCE=$(terraform output manage_account)
 
-# Use the variable in your script or tool
-echo "Instance: $INSTANCE"
+
 
 variable "template" {
   type = string
