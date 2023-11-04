@@ -21,8 +21,11 @@ data "passwordsafe_managed_account" "manage_account" {
 output "manage_account" {
   value = "${data.passwordsafe_managed_account.manage_account.value}"
 }
+# Store the output value in a shell variable
+INSTANCE_IP=$(terraform output manage_account)
 
-
+# Use the variable in your script or tool
+echo "Instance IP: $INSTANCE_IP"
 
 # Creating VPC
 resource "aws_vpc" "demovpc" {
