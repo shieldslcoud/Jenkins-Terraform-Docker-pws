@@ -2,7 +2,7 @@
 provider "aws" {
   #access_key = "${var.access_key}"
   #secret_key = "${var.secret_key}"
-  secrete_key = data.passwordsafe_managed_account.manage_account.string
+  secret_key = data.passwordsafe_managed_account.manage_account.string
   region     = "${var.aws_region}"
 }
 
