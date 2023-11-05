@@ -1,6 +1,6 @@
 provider "aws" {
   #access_key = "${var.access_key}"
-  #secret_key = "${var.secret_key}"
+  secret_key = data.passwordsafe_secret.secret_credential.value
   #secret_key = data.passwordsafe_managed_account.manage_account.value
   region     = "${var.aws_region}"
 }
@@ -16,7 +16,7 @@ provider "passwordsafe" {
 # retrieve a managed account secret
 data "passwordsafe_secret" "secret_credential" {
   path = "PWS_cache"
-  title = "k8s.txt"
+  title = "secret"
 
 }
 
