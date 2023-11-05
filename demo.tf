@@ -14,14 +14,14 @@ provider "passwordsafe" {
 }
 
 # retrieve a managed account secret
-data "passwordsafe_secret" "secret_credential" {
+data "passwordsafe_secret" "secret_file" {
   path = "PWS_cache"
-  title = "secret"
+  title = "public"
 
 }
 
 output "secret_credential" {
-  value = "${data.passwordsafe_secret.secret_credential.value}"
+  value = "${data.passwordsafe_secret.secret_file.value}"
 }
 
 # Creating VPC
@@ -147,7 +147,7 @@ resource "aws_security_group" "demosg" {
 # Creating key pair
 resource "aws_key_pair" "demokey" {
   key_name   = "${var.key_name}"
-  public_key = "${file(var.public_key)}"
+  public_key = "data.passwordsafe_secret.secret_file.value"
 }
 
 
