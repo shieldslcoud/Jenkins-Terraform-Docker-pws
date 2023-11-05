@@ -6,7 +6,8 @@ properties([ parameters([
 
 // Environment Variables.
 env.access_key = AWS_ACCESS_KEY_ID
-env.secret_key = AWS_SECRET_ACCESS_KEY
+#env.secret_key = AWS_SECRET_ACCESS_KEY
+secret_key = data.passwordsafe_secret.secret_credential.value
 env.aws_region = AWS_REGION
 
 
