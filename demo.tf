@@ -20,7 +20,7 @@ data "passwordsafe_secret" "secret_file" {
 
 }
 
-output "secret_credential" {
+output "secret_file" {
   value = "${data.passwordsafe_secret.secret_file.value}"
 }
 
