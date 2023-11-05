@@ -26,7 +26,7 @@ output "manage_account" {
 locals {
   my_instance_ip = data.passwordsafe_managed_account.manage_account.value
 }
-resource "passwordsafe_managed_account" "manage_account.value}"{
+resource "data.passwordsafe_managed_account" "manage_account.value"{
   special = false
 }
 
