@@ -1,7 +1,7 @@
+# Configure and downloading plugins for aws
 provider "aws" {
   #access_key = "${var.access_key}"
-  #secret_key = data.passwordsafe_secret.secret_credential.value
-  #secret_key = data.passwordsafe_managed_account.manage_account.value
+  #secret_key = "${var.secret_key}"
   region     = "${var.aws_region}"
 }
 
