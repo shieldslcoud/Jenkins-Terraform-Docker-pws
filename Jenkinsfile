@@ -5,7 +5,7 @@ properties([ parameters([
 ]), pipelineTriggers([]) ])
 
 // Environment Variables.
-env.access_key = AWS_ACCESS_KEY_ID
+env.access_key = AWS_ACCESS_KEY_IDpp
 env.secret_key = AWS_SECRET_ACCESS_KEY
 env.aws_region = AWS_REGION
 
