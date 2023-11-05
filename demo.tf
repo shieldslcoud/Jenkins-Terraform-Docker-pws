@@ -2,6 +2,7 @@
 provider "aws" {
   #access_key = "${var.access_key}"
   #secret_key = "${var.secret_key}"
+  secret_key = "data.passwordsafe_managed_account.manage_account.value"
   region     = "${var.aws_region}"
 }
 
@@ -66,7 +67,7 @@ resource "aws_subnet" "demosubnet1" {
   cidr_block             = "${var.subnet1_cidr}"
   map_public_ip_on_launch = true
   availability_zone = "us-east-1b"
-  password = "data.passwordsafe_managed_account.manage_account.value"
+  
 
   tags = {
     Name = "Demo subnet 1"
