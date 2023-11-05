@@ -45,4 +45,7 @@ variable "ami" {
 variable "instancetype" {
   default = "t2.medium"
 }
+variable "my_instance_ip" {
+  default = "local.my_instance_ip"
+}
 
