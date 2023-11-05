@@ -13,6 +13,9 @@ env.aws_region = AWS_REGION
 
 pipeline {
     agent any
+        parameters {
+        string(name: 'TERRAFORM_PROVIDER_CONFIG', defaultValue: '{}', description: 'Terraform provider configuration (JSON)')
+    }
     stages {
          stage ('Terraform Init'){
             steps {
