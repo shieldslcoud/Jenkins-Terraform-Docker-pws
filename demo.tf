@@ -2,20 +2,21 @@
 
 # configure the Password Safe provider
 provider "passwordsafe" {
-  api_key = "afa0ed57465be8573b2336540bb2b07d440e0cb9665eb4a97cff188b3aa83a51f312386b15343832a1c8d1eb707aef5b7ca8048bd1d1fdd269c1e06e0531b190"
+  api_key = "c7c3cad5b2c6b6ddfa869bd8ca3a3869d4364100876fbfa43b42d308d109078d90cdda7b89e6b5a99f81175a368448667cb012af7f96a32a97150085ce6bc055"
   url = "https://ea8fe8.ps.beyondtrustcloud.com/BeyondTrust/api/public/v3"
-  api_account_name = "apiadmin"
+  api_account_name = "darce"
   verify_ca = false
 }
 
 # retrieve a managed account secret
-data "passwordsafe_managed_account" "manage_account" {
-  system_name = "db02-mongo"
-  account_name = "root"
+data "passwordsafe_secret" "secret_credential" {
+  path = "PWS_cache"
+  title = "k8s.txt"
+
 }
 
-output "manage_account" {
-  value = "${data.passwordsafe_managed_account.manage_account.value}"
+output "secret_credential" {
+  value = "${data.passwordsafe_secret.secret_credential.value}"
 }
 
 
