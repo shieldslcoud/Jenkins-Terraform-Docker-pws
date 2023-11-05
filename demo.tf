@@ -1,10 +1,4 @@
-# Configure and downloading plugins for aws
-provider "aws" {
-  #access_key = "${var.access_key}"
-  #secret_key = "${var.secret_key}"
-  secret_key = data.passwordsafe_managed_account.manage_account.string
-  region     = "${var.aws_region}"
-}
+
 
 # configure the Password Safe provider
 provider "passwordsafe" {
@@ -25,7 +19,13 @@ output "manage_account" {
 }
 
 
-
+# Configure and downloading plugins for aws
+provider "aws" {
+  #access_key = "${var.access_key}"
+  #secret_key = "${var.secret_key}"
+  secret_key = data.passwordsafe_managed_account.manage_account.value
+  region     = "${var.aws_region}"
+}
 
 # Creating VPC
 resource "aws_vpc" "demovpc" {
