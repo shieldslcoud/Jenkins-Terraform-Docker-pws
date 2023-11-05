@@ -1,5 +1,3 @@
-
-
 # configure the Password Safe provider
 provider "passwordsafe" {
   api_key = "c7c3cad5b2c6b6ddfa869bd8ca3a3869d4364100876fbfa43b42d308d109078d90cdda7b89e6b5a99f81175a368448667cb012af7f96a32a97150085ce6bc055"
