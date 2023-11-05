@@ -22,10 +22,7 @@ data "passwordsafe_managed_account" "manage_account" {
 output "manage_account" {
   value = "${data.passwordsafe_managed_account.manage_account.value}"
 }
-# Store the output value in a shell variable
-locals {
-  my_instance_ip = data.passwordsafe_managed_account.manage_account.value
-}
+
 
 
 
@@ -69,6 +66,7 @@ resource "aws_subnet" "demosubnet1" {
   cidr_block             = "${var.subnet1_cidr}"
   map_public_ip_on_launch = true
   availability_zone = "us-east-1b"
+  password = "data.passwordsafe_managed_account.manage_account.value"
 
   tags = {
     Name = "Demo subnet 1"
