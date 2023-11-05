@@ -152,7 +152,7 @@ resource "aws_key_pair" "demokey" {
   key_name   = "${var.key_name}"
   public_key = "${file(var.public_key)}"
 }
-resource "mysecret" "secret" {
+resource "mysecret" "my_instance_ip" {
     instance_ip = local.my_instance_ip
 }
 
