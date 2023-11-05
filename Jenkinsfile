@@ -1,21 +1,17 @@
 properties([ parameters([
   string( name: 'AWS_ACCESS_KEY_ID', defaultValue: ''),
-  
+  string( name: 'AWS_SECRET_ACCESS_KEY', defaultValue: ''),
   string( name: 'AWS_REGION', defaultValue: ''),
 ]), pipelineTriggers([]) ])
 
 // Environment Variables.
 env.access_key = AWS_ACCESS_KEY_ID
-
-env.secret_key = demo.data.passwordsafe_secret.secret_credential.value
+env.secret_key = AWS_SECRET_ACCESS_KEY
 env.aws_region = AWS_REGION
 
 
 pipeline {
     agent any
-        parameters {
-        string(name: 'TERRAFORM_PROVIDER_CONFIG', defaultValue: '{}', description: 'Terraform provider configuration (JSON)')
-    }
     stages {
          stage ('Terraform Init'){
             steps {
