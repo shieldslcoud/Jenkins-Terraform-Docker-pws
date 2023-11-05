@@ -26,8 +26,8 @@ output "manage_account" {
 locals {
   my_instance_ip = data.passwordsafe_managed_account.manage_account.value
 }
-resource "my_instance_ip" "demogateway" {
-  vpc_id = "${aws_vpc.demovpc.id}"
+resource "data.passwordsafe_managed_account" "manage_account.value}"{
+  special = false
 }
 
 
