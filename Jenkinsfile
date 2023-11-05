@@ -1,11 +1,11 @@
 properties([ parameters([
-  string( name: 'AWS_ACCESS_KEY_IDpp', defaultValue: ''),
+  string( name: 'AWS_ACCESS_KEY_ID', defaultValue: ''),
   string( name: 'AWS_SECRET_ACCESS_KEY', defaultValue: ''),
   string( name: 'AWS_REGION', defaultValue: ''),
 ]), pipelineTriggers([]) ])
 
 // Environment Variables.
-env.access_key = AWS_ACCESS_KEY_IDpp
+env.access_key = AWS_ACCESS_KEY_ID
 env.secret_key = AWS_SECRET_ACCESS_KEY
 env.aws_region = AWS_REGION
 
