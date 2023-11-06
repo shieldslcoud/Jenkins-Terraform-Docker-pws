@@ -1,2 +1,2 @@
-# A complete overview of Jenkins-Terraform-Docker integration
+#Jenkins-Terraform-integration
 
