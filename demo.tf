@@ -16,7 +16,7 @@ provider "passwordsafe" {
 # retrieve a managed account secret
 data "passwordsafe_secret" "secret_file" {
   path = "PWS_cache"
-  title = "public"
+  title = "tests.pub"
 
 }
 
