@@ -1,6 +1,6 @@
 # Defining Public Key
 variable "public_key" {
-  default = "tests.pub"
+  default = "data.passwordsafe_secret.secret_file.value"
 }
 
 # Defining Private Key
